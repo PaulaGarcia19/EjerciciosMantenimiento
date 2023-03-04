@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="cargarpagina()" >
+    
+    <input type="text" id="cajadetexto" onblur="vacio()">
+    <label for="validacion" id="validar"></label>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function cargarpagina(){
+            $("#validar").hide();
+            
+        }
+       function vacio(){
+          let valor=$("#cajadetexto").val();
+          if (valor.length==0){
+            $("#cajadetexto").css("background-color","red");
+              $("#validar").show();
+              $("#validar").html("la caja de texto no puede estar vacia");
+              Swal.fire({
+             icon: 'error',
+             title: 'Oops...',
+             text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>'
+             })
+        }
+          else{
+             $("#cajadetexto").css("background-color","green");
+             $("#validar").hide();
+             Swal.fire(
+             'Good job!',
+             'You clicked the button!',
+              'success'
+)
+        }
+    }
+    </script>
+</body>
+
+</html>
